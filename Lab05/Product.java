@@ -6,11 +6,16 @@ public class Product{
     private static double maxPrice;
     private static double minPrice;
     private static int count=0;
+    private Date md;
     public Product(String name, double price, int quantity){
+          this(name,price,quantity,new Date(1,1,1));
+    }
+    public Product(String name, double price, int quantity,Date mf){
           setName(name);
           setPrice(price);
           setQuantity(quantity);
           this.id=String.format("P%03d",count++);
+          this.md = mf;
           if (count==1){
                  Product.minPrice=price;
 	 	 Product.maxPrice=price;
@@ -46,5 +51,6 @@ public class Product{
         System.out.println("Product Name: "+name);
 	System.out.println("Product Price:"+price);
 	System.out.println("Product Quantity:"+quantity);
+        System.out.println("Product Manufacturing Date:"+ md);
     }
 }
